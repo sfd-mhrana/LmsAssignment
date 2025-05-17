@@ -1,5 +1,6 @@
 import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { CourseApiService } from './course-api.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn:'root'
@@ -12,6 +13,8 @@ export class CourseStateService {
   statusSearch: WritableSignal<number | null> = signal(null);
   sortBy: WritableSignal<number | null> = signal(null);
 
+  router=inject(Router);
+
   courseList = computed(() => {
     const search = this.search();
     const categorySearch = this.categorySearch();
@@ -19,10 +22,12 @@ export class CourseStateService {
     const sortBy = this.sortBy();
 
     let courses = structuredClone(this.courseApi.getCourseList());
-    if (search)
+    if (search){
       courses = courses.filter((course) => {
         return ((course.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())) || course.category.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
       })
+      this.router.navigate(['/'])
+    }
 
     if (categorySearch && categorySearch!='0')
       courses = courses.filter((course) => {
