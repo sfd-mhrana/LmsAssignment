@@ -1,7 +1,9 @@
 import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { CourseApiService } from './course-api.service';
 
-@Injectable()
+@Injectable({
+  providedIn:'root'
+})
 export class CourseStateService {
   courseApi = inject(CourseApiService);
 

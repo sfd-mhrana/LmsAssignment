@@ -11,7 +11,6 @@ import { CourseStateService } from '@modules/course/services/course-state.servic
   ],
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.scss',
-  providers:[CourseStateService]
 })
 export class CourseListComponent {
 
