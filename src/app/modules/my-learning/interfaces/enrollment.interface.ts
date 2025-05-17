@@ -1,4 +1,4 @@
-export interface Enrollment {
+export interface IEnrollment {
   userId: string;
   courseId: string;
   status: 'enrolled' | 'completed';

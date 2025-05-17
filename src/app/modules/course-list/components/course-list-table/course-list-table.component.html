@@ -1,26 +1,40 @@
-<table class="table-auto">
-  <thead>
-    <tr>
-      <th>Song</th>
-      <th>Artist</th>
-      <th>Year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-      <td>Malcolm Lockyer</td>
-      <td>1961</td>
-    </tr>
-    <tr>
-      <td>Witchy Woman</td>
-      <td>The Eagles</td>
-      <td>1972</td>
-    </tr>
-    <tr>
-      <td>Shining Star</td>
-      <td>Earth, Wind, and Fire</td>
-      <td>1975</td>
-    </tr>
-  </tbody>
-</table>
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Title
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Category
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Duration
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (course of courses(); track course.id; let i = $index) {
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          {{course.title}}
+        </th>
+        <td class="px-6 py-4">
+          {{course.category}}
+        </td>
+        <td class="px-6 py-4">
+          {{course.duration}}
+        </td>
+        <td class="px-6 py-4">
+          {{course.isFree | courseStatus }}
+        </td>
+      </tr>
+      } @empty {
+      <div>No Courses found.</div>
+      }
+    </tbody>
+  </table>
+</div>
