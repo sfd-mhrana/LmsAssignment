@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ICourse } from '@modules/course-list/interfaces/course.interfaces';
+import { ICourse } from '@modules/course/interfaces/course.interfaces';
+import { IEnrollment } from '@modules/my-learning/interfaces/enrollment.interface';
 import { IUser } from '@modules/profile/interfaces/user.interface';
 import { ILocalStorageData } from '@shared/interfaces/local-storage-data.interface';
 
@@ -35,6 +36,16 @@ export class LocalStorageService {
       return;
     }
     localStorage.setItem(this.storageKey, JSON.stringify({ user }));
+  }
+
+  setEnrollCourse(enrollments: Array<IEnrollment>) {
+    const data = this.getLocalStorageData();
+    if (data) {
+      const newData = { ...data, ...{ enrollments } };
+      localStorage.setItem(this.storageKey, JSON.stringify(newData));
+      return;
+    }
+    localStorage.setItem(this.storageKey, JSON.stringify({ enrollments }));
   }
 
 }

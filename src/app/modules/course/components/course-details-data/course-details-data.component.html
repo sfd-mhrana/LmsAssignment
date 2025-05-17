@@ -1,0 +1,28 @@
+<div class="w-full flex flex-col mx-auto card gap-2">
+  <div class="flex flex-row gap-2">
+    <label class="font-bold">Title</label>
+    <p>{{course().title}}</p>
+  </div>
+  <div class="flex flex-row gap-2">
+    <label class="font-bold">Description</label>
+    <p>{{course().description}}</p>
+  </div>
+  <div class="flex flex-row gap-2">
+    <label class="font-bold">Category</label>
+    <p>{{course().category}}</p>
+  </div>
+  <div class="flex flex-row gap-2">
+    <label class="font-bold">Duration</label>
+    <p>{{course().duration}}</p>
+  </div>
+  <div class="flex flex-row gap-2">
+    <label class="font-bold">Prerequisites</label>
+    <p>{{course().prerequisites.join(',')}}</p>
+  </div>
+  <div class="flex flex-row gap-2">
+    <label class="font-bold">Status</label>
+    <p>{{course().isFree | courseStatus }}</p>
+  </div>
+  <button class="w-full border cursor-pointer" (click)="enrollCourse()"> {{isAlreadyEnroll?'Enrolled':'Enroll
+    Now'}}</button>
+</div>

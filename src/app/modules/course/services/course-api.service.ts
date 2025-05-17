@@ -9,11 +9,11 @@ export class CourseApiService {
   db = inject(DBService);
 
   getCourseList() {
-    return this.db.courses;
+    return this.db.courses();
   }
 
   getCourseById(courseId: string) {
-    return this.db.courses().find((course) => course.id == courseId);
+    return this.db.courses().find((course) => course.id == courseId) ?? null;
   }
 
 }

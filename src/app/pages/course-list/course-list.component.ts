@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CourseListTableComponent } from '../../modules/course-list/components/course-list-table/course-list-table.component';
-import { CourseFilterComponent } from '@modules/course-list/components/course-filter/course-filter.component';
+import { CourseListTableComponent } from '../../modules/course/components/course-list-table/course-list-table.component';
+import { CourseFilterComponent } from '@modules/course/components/course-filter/course-filter.component';
 
 @Component({
   selector: 'app-course-list',

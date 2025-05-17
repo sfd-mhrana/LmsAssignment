@@ -9,31 +9,25 @@
           Category
         </th>
         <th scope="col" class="px-6 py-3">
-          Duration
-        </th>
-        <th scope="col" class="px-6 py-3">
           Status
         </th>
       </tr>
     </thead>
     <tbody>
-      @for (course of courses(); track course.id; let i = $index) {
+      @for (enroll of enrollState.myCompleteEnrollList(); track enroll.course?.id; let i = $index) {
       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-          {{course.title}}
+          {{enroll.course?.title}}
         </th>
         <td class="px-6 py-4">
-          {{course.category}}
+          {{enroll.course?.category}}
         </td>
         <td class="px-6 py-4">
-          {{course.duration}}
-        </td>
-        <td class="px-6 py-4">
-          {{course.isFree | courseStatus }}
+          {{enroll.course?.category}}
         </td>
       </tr>
       } @empty {
-      <div>No Courses found.</div>
+      <div>No Enroll found.</div>
       }
     </tbody>
   </table>

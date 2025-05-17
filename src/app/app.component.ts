@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
       if (data) {
         this.db.courses.set(data.courses);
         this.db.user.set(data.user);
-        this.db.enrollments.set(data.enrollments);
+        this.db.enrollments.set(data.enrollments??[]);
       } else {
         this.localStorage.setCourseList(this.db.courses())
         this.localStorage.setUser(this.db.user())

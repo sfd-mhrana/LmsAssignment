@@ -1,5 +1,5 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { ICourse } from '@modules/course-list/interfaces/course.interfaces';
+import { ICourse } from '@modules/course/interfaces/course.interfaces';
 import { IEnrollment } from '@modules/my-learning/interfaces/enrollment.interface';
 import { IUser } from "@modules/profile/interfaces/user.interface";
 
