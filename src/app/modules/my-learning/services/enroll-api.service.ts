@@ -24,8 +24,7 @@ export class EnrollApiService {
       enrolledAt: new Date().toLocaleDateString(),
     }
     this.db.enrollments.update((prev) => {
-      prev.push(newEnrollObject);
-      return prev;
+      return [...prev,...[newEnrollObject]]
     })
     this.localStorage.setEnrollCourse(this.db.enrollments());
   }
