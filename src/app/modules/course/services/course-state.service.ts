@@ -13,7 +13,6 @@ export class CourseStateService {
   statusSearch: WritableSignal<number | null> = signal(null);
   sortBy: WritableSignal<number | null> = signal(null);
 
-  router=inject(Router);
 
   courseList = computed(() => {
     const search = this.search();
@@ -26,7 +25,6 @@ export class CourseStateService {
       courses = courses.filter((course) => {
         return ((course.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())) || course.category.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
       })
-      this.router.navigate(['/'])
     }
 
     if (categorySearch && categorySearch!='0')

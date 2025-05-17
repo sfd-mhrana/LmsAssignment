@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CourseStateService } from '@modules/course/services/course-state.service';
 
 @Component({
@@ -14,5 +14,13 @@ import { CourseStateService } from '@modules/course/services/course-state.servic
 
 })
 export class HeaderComponent {
-  courseState=inject(CourseStateService);
+  courseState = inject(CourseStateService);
+  router = inject(Router);
+  constructor() {
+    effect(() => {
+      const search = this.courseState.search();
+      if (search)
+        this.router.navigate(['/'])
+    })
+  }
 }
