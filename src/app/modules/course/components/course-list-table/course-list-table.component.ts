@@ -10,8 +10,7 @@ import { CourseStatusPipe } from '@shared/pipe/course-status.pipe';
     RouterLink
   ],
   templateUrl: './course-list-table.component.html',
-  styleUrl: './course-list-table.component.scss',
-  providers:[CourseStateService]
+  styleUrl: './course-list-table.component.scss'
 })
 export class CourseListTableComponent {
   courseState = inject(CourseStateService);
